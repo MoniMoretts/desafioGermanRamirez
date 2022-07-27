@@ -1,7 +1,40 @@
-.fondo{
-    width: 100vw;
-    height: 100vh;
+.boton{
+    background-color: black;
+    color: white;
+    margin-bottom: 40px;
+    font-size: 20px;
+}
+.lista{
+    background-color: black;
+    border: 1px white;
+    padding: 10px;
+    color: antiquewhite;
+}
+.menu{
+    display: flex;
+    justify-content: space-evenly;
+}
+.botonCompra{
     display: flex;
     justify-content: center;
-    align-items: center;
+}
+#miBoton{
+    display: block;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    margin-top: 40px;
+}
+h1{
+    text-align: center;
+    font: 50px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+h4{
+    text-align: center;
+    margin-bottom: 40px;
+}
+*{
+    background-color: aquamarine;
 }

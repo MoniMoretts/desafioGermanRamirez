@@ -1,20 +1,109 @@
-console.log(`El password es COMPRAR`)
-function login(){
-    let ingreso = prompt ("Para ingresar descubra el password oculto en console")
-    if(ingreso=="COMPRAR")
-    {
-        alert("LOGIN EXITOSO")
-        let numCompras = Number(prompt("ingrese el numero de compras que desea realizar"))
-        let contador = 0;
-        let total = 0;
-        if (numCompras==NaN)
+ingreso()
+
+function ingreso() {
+    const nombre = prompt("Ingrese su nombre")
+    const apellido = prompt("Ingrese su apellido")
+    alert(`Bienvenido a Metropolis ${nombre + " " + apellido}`)
+}
+
+
+mostrarCategorias()
+
+
+function mostrarCategorias() {
+    const categorias = ["Indumentaria", "Calzado", "Accesorios"];
+
+    categorias.forEach((categoria) => {
+        mostrarCategoria(categoria);
+    })
+
+
+}
+
+
+
+function mostrarCategoria(categoria) {
+    const nodoMenu = document.getElementById("menu");
+    const btn = document.createElement("button");
+    btn.innerText = categoria;
+    btn.classList.add("boton");
+    btn.setAttribute("id", categoria);
+    nodoMenu.classList.add("menu")
+
+    btn.addEventListener("click", () => {
+        mostrarProductos(categoria)
+    })
+
+    nodoMenu.appendChild(btn);
+}
+
+function mostrarProductos(categoria) {
+    switch (categoria) {
+        case "Indumentaria":
+            mostrarIndumentaria();
+            break;
+        case "Calzado":
+            mostrarCalzado();
+            break;
+        case "Accesorios":
+            mostrarAccesorios();
+            break;
+        default:
+            alert("Categoria Inválida")
+            break;
+    }
+}
+
+function mostrarIndumentaria() {
+    const indumentaria = ["Jean:100usd", "Buzo:150usd", "Remera:50usd"]
+    mostrarProductosCategoria(indumentaria)
+}
+
+function mostrarCalzado() {
+    const calzado = ["Zapatilla:250usd", "Zapato:200usd", "Botas:400usd"]
+    mostrarProductosCategoria(calzado)
+}
+
+function mostrarAccesorios() {
+    const accesorios = ["Collar:20usd", "Pulsera:10usd"]
+    mostrarProductosCategoria(accesorios)
+}
+
+function mostrarProductosCategoria(productos) {
+    const nodoContenedor = document.getElementById("contenedor");
+    nodoContenedor.innerText = "";
+    productos.forEach((producto) => {
+        const nodoDiv = document.createElement("div")
+        nodoDiv.classList.add("lista");
+        nodoDiv.innerText = producto;
+        nodoContenedor.appendChild(nodoDiv)
+    })
+}
+
+BotonComprar()
+
+function BotonComprar() {
+    const boton = document.getElementById("miBoton");
+
+    boton.addEventListener("click", () => {
+        comprar();
+    }
+    )
+
+}
+
+function comprar()
+{
+    let numCompras = prompt("Ingrese el numero de productos que desea comprar")
+    let contador = 0;
+    let total = 0;
+    if (NaN)
         {
             alert("ERROR, EL DATO INGRESADO ES INVALIDO")
-            login()
+            comprar()
         }
-        else
-        {
-            while(contador<numCompras)
+    else{
+        while(contador<numCompras)
             {
                 let cifras = Number(prompt(`Ingrese el monto del producto ${contador+1}`))
                 if (cifras>0){
@@ -22,8 +111,8 @@ function login(){
                 }
                 contador++;
             }
-                alert(`Su monto total (mas iva incluido) es $${total+(total*21/100)}`)
-                let cuotas = Number(prompt("Ingrese el numero de cuotas en las que desee abonar (1,3,6,9 o 12)"))
+            alert(`Su monto total (mas iva incluido) es $${total+(total*21/100)}`)
+            let cuotas = Number(prompt("Ingrese el numero de cuotas en las que desee abonar (1,3,6,9 o 12)"))
                 switch(cuotas)
                 {
                     case 1:
@@ -46,11 +135,7 @@ function login(){
                         login()
                         break;
                 }      
-        }
-    }
-    else{
-        alert("ERROR, PASSWORD INCORRECTO")
-        login()
     }
 }
-login()
+
+
