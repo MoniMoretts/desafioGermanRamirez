@@ -1,11 +1,13 @@
-ingreso()
+let nombre = localStorage.getItem("nombre") || prompt("Ingrese su nombre");
 
-function ingreso() {
-    const nombre = prompt("Ingrese su nombre")
-    const apellido = prompt("Ingrese su apellido")
-    alert(`Bienvenido a Metropolis ${nombre + " " + apellido}`)
+nombre !== "" && localStorage.setItem("nombre", nombre)
+nombre !== "" && saludarUsuario();
+
+function saludarUsuario() {
+
+        alert(`Que bueno verte de nuevo ${nombre}`);
+
 }
-
 
 mostrarCategorias()
 
@@ -66,9 +68,9 @@ const indumentaria3 = {
     valor: "5000ars"
 }
 const indumentaria = [indumentaria1.prenda, indumentaria1.valor, indumentaria2.prenda, indumentaria2.valor, indumentaria3.prenda, indumentaria3.valor]
-    
+
 function mostrarIndumentaria() {
-    
+
     mostrarProductosCategoria(indumentaria)
 }
 
@@ -88,7 +90,7 @@ const calzado3 = {
 const calzado = [calzado1.prenda, calzado1.valor, calzado2.prenda, calzado2.valor, calzado3.prenda, calzado3.valor]
 
 function mostrarCalzado() {
-    
+
     mostrarProductosCategoria(calzado)
 }
 
@@ -108,7 +110,7 @@ const accesorio3 = {
 const accesorios = [accesorio1.prenda, accesorio1.valor, accesorio2.prenda, accesorio2.valor, accesorio3.prenda, accesorio3.valor]
 
 function mostrarAccesorios() {
-    
+
     mostrarProductosCategoria(accesorios)
 }
 
@@ -118,7 +120,7 @@ function mostrarProductosCategoria(productos) {
     productos.forEach((producto) => {
         const nodoDiv = document.createElement("div")
         nodoDiv.classList.add("lista");
-        nodoDiv.innerText =JSON.stringify (producto);
+        nodoDiv.innerText = JSON.stringify(producto);
         nodoContenedor.appendChild(nodoDiv)
     })
 }
@@ -145,12 +147,12 @@ function comprar() {
     }
     else {
         while (contador < numCompras) {
-            let cifras = Number(prompt(`Ingrese el monto del producto ${contador + 1} ${JSON.stringify(indumentaria +" "+ calzado+" "+ accesorios)}`))
+            let cifras = Number(prompt(`Ingrese el monto del producto ${contador + 1} ${JSON.stringify(indumentaria + " " + calzado + " " + accesorios)}`))
             if (cifras > 0) {
                 total += cifras
             }
             else {
-                alert ("Coloque un monto correcto")
+                alert("Coloque un monto correcto")
                 comprar()
             }
             contador++;
