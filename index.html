@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,13 +8,22 @@
     <title>DesafioFinal</title>
     <script defer src="js/index.js"></script>
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baumans&display=swap" rel="stylesheet">
 </head>
-<body> 
-    <h1>Tienda Metropolis</h1>
-    <h4>Para realizar una comprar seleccion la categoria y tome nota del precio de su producto. Luego ejecute COMPRAR</h4>
+
+<body>
+    <div>
+        <h1>Tienda Metropolis</h1>
+    </div>
+    <h4>Para realizar una comprar seleccione la categoria deseada</h4>
     <div id="menu"></div>
     <div id="contenedor"></div>
+    <h4>Calcule el monto total de su producto mas iva y el precio final en cuotas</h4>
     <div class="botonCompra">
-        <button id="miBoton"> Comprar </button>
-    </div>   
+        <button id="miBoton"> Calcular </button>
+        <button class="boton"><a class="boton" href="https://www.mercadopago.com.ar/">Comprar</a></button>
+    </div>
+
 </html>
