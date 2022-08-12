@@ -5,8 +5,34 @@ nombre !== "" && saludarUsuario();
 
 function saludarUsuario() {
 
-        alert(`Que bueno verte de nuevo ${nombre}`);
+    alert(`Que bueno verte de nuevo ${nombre}`);
 
+}
+
+titulo()
+
+function titulo() {
+    const a = document.getElementById("titulo")
+    const h1 = document.getElementById("fondoTitulo")
+    a.addEventListener("mouseenter", () => {
+        a.setAttribute("style", "color:black")
+    });
+    h1.addEventListener("mouseenter", () => {
+        h1.setAttribute("style", "background-color:white")
+    })
+}
+
+tituloReturn()
+
+function tituloReturn() {
+    const a = document.getElementById("titulo")
+    const h1 = document.getElementById("fondoTitulo")
+    a.addEventListener("mouseleave", () => {
+        a.setAttribute("style", "color:white")
+    });
+    h1.addEventListener("mouseleave", () => {
+        h1.setAttribute("style", "background-color:rgba(0, 0, 0, 0.767)")
+    })
 }
 
 mostrarCategorias()
@@ -148,12 +174,9 @@ function comprar() {
     else {
         while (contador < numCompras) {
             let cifras = Number(prompt(`Ingrese el monto del producto ${contador + 1} ${JSON.stringify(indumentaria + " " + calzado + " " + accesorios)}`))
-            if (cifras > 0) {
-                total += cifras
-            }
-            else {
-                alert("Coloque un monto correcto")
-                comprar()
+            let validarMonto = cifras = isNaN ? montos() : alert("Su monto es invalido");
+            function montos() {
+                let montos = cifras > 0 ? total += cifras : alert("Su monto es invalido");
             }
             contador++;
         }
