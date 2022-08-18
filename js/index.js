@@ -151,6 +151,38 @@ function mostrarProductosCategoria(productos) {
     })
 }
 
+otrosProductos()
+
+function otrosProductos() {
+    const btn = document.getElementById("otros");
+    btn.addEventListener("click", () => {
+        cargarProductosExtras();
+    })
+}
+
+async function cargarProductosExtras() {
+    let res = await fetch(`https://fakestoreapi.com/products`)
+    let json = await res.json();
+    mostrarProductosExtras(json);
+}
+
+function mostrarProductosExtras(extras) {
+    const div = document.getElementById("extras");
+    div.innerHTML = "";
+    extras.forEach((extra) => {
+      mostrarProductoExtra(extra);
+    })
+  }
+
+  function mostrarProductoExtra(extra) {
+    const div = document.getElementById("extras");
+    const nodoExtra = document.createElement("div")
+    
+    nodoExtra.innerHTML = `<h3>${extra.title}</h3>
+                        <p>${extra.price}</p>`
+    div.appendChild(nodoExtra);
+  }
+
 BotonComprar()
 
 function BotonComprar() {
