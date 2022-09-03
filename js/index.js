@@ -5,7 +5,8 @@ nombre !== "" && saludarUsuario();
 
 function saludarUsuario() {
 
-    alert(`Que bueno verte de nuevo ${nombre}`);
+    swal({title:`Que bueno verte ${nombre}!`,
+icon:"success"});
 
 }
 
@@ -77,7 +78,8 @@ function mostrarProductos(categoria) {
             mostrarAccesorios();
             break;
         default:
-            alert("Categoria Inválida")
+            swal({text:"Categoria Inválida",
+        icon:"error"})
             break;
     }
 }
@@ -200,38 +202,41 @@ function comprar() {
     let contador = 0;
     let total = 0;
     if (NaN) {
-        alert("ERROR, EL DATO INGRESADO ES INVALIDO")
+        swal({text:"ERROR, EL DATO INGRESADO ES INVALIDO",
+        icon:"error"
+    })
         comprar()
     }
     else {
         while (contador < numCompras) {
             let cifras = Number(prompt(`Ingrese el monto del producto ${contador + 1} ${JSON.stringify(indumentaria + " " + calzado + " " + accesorios)}`))
-            let validarMonto = cifras = isNaN ? montos() : alert("Su monto es invalido");
+            let validarMonto = cifras = isNaN ? montos() : swal({text:"Su monto es invalido",
+        icon:"error"});
             function montos() {
-                let montos = cifras > 0 ? total += cifras : alert("Su monto es invalido");
+                let montos = cifras > 0 ? total += cifras : swal({text:"Su monto es invalido", icon:"error"});
             }
             contador++;
         }
-        alert(`Su monto total (mas iva incluido) es $${total + (total * 21 / 100)}`)
+        swal({text:`Su monto total (mas iva incluido) es $${total + (total * 21 / 100)}`});
         let cuotas = Number(prompt("Ingrese el numero de cuotas en las que desee abonar (1,3,6,9 o 12)"))
         switch (cuotas) {
             case 1:
-                alert(`su monto final es $${total + (total * 21 / 100)}`);
+                swal(`su monto final es $${total + (total * 21 / 100)}`);
                 break;
             case 3:
-                alert(`su total (mas iva incluido) son 3 cuotas de $${(total + (total * 0.21)) / 3}`);
+                swal(`su total (mas iva incluido) son 3 cuotas de $${(total + (total * 0.21)) / 3}`);
                 break;
             case 6:
-                alert(`su total (mas iva incluido) son 6 cuotas de $${(total + (total * 0.21)) / 6}`);
+                swal(`su total (mas iva incluido) son 6 cuotas de $${(total + (total * 0.21)) / 6}`);
                 break;
             case 9:
-                alert(`su total (mas iva incluido) son 9 cuotas de $${(total + (total * 0.21)) / 9}`);
+                swal(`su total (mas iva incluido) son 9 cuotas de $${(total + (total * 0.21)) / 9}`);
                 break;
             case 12:
-                alert(`su total (mas iva incluido) son 12 cuotas de $${(total + (total * 0.21)) / 12}`);
+                swal(`su total (mas iva incluido) son 12 cuotas de $${(total + (total * 0.21)) / 12}`);
                 break;
             default:
-                alert("ERROR, EL DATO INGRESADO ES INVALIDO")
+                swal("ERROR, EL DATO INGRESADO ES INVALIDO")
                 break;
         }
     }

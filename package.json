@@ -1,0 +1,22 @@
+{
+  "name": "desafio1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/germanramirez99/desafioGermanRamirez.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/germanramirez99/desafioGermanRamirez/issues"
+  },
+  "homepage": "https://github.com/germanramirez99/desafioGermanRamirez#readme",
+  "dependencies": {
+    "bootbox": "^5.5.3"
+  }
+}
